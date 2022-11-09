@@ -16,7 +16,8 @@ import org.photonvision.targeting.TargetCorner;
 
 
 public class Camera extends SubsystemBase {
-PhotonCamera camera;
+
+  public PhotonCamera camera;
 
   /** Creates a new Camera. */
   public Camera(PhotonCamera camera) {
@@ -25,6 +26,7 @@ PhotonCamera camera;
 
   @Override
   public void periodic() {
+
     var result = camera.getLatestResult();
 
     boolean hasTargets = result.hasTargets();
@@ -38,18 +40,24 @@ PhotonCamera camera;
     // Get the pipeline latency.
     double latencySeconds = result.getLatencyMillis() / 1000.0;
 
+
+    // Cool stuff
     double yaw = target.getYaw();
     double pitch = target.getPitch();
     double area = target.getArea();
     double skew = target.getSkew();
+
+    //Translation to target
     Transform3d pose = target.getBestCameraToTarget();
+
+    //Target corners from camera feed
     List<TargetCorner> corners = target.getCorners();
 
     SmartDashboard.putBoolean("Has Targets", hasTargets);
     SmartDashboard.putNumber("Latency (s)", latencySeconds);
-    SmartDashboard.putNumber("yaw", yaw);
-    SmartDashboard.putNumber("pitch", pitch);
-    SmartDashboard.putNumber("area", pitch);
-    SmartDashboard.putNumber("skew", pitch);
+    SmartDashboard.putNumber("Yaw", yaw);
+    SmartDashboard.putNumber("Pitch", pitch);
+    SmartDashboard.putNumber("Area", area);
+    SmartDashboard.putNumber("Skew", skew);
   }
 }
