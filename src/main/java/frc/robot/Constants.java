@@ -14,6 +14,6 @@ package frc.robot;
  */
 public final class Constants {
     public final static class camera {
-        public static final String cameraName = "photonvision";
+        public static final String cameraName = "mmal_service_16.1";
     }
 }
