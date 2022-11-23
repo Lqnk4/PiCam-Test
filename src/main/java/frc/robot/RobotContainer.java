@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.robot.commands.CameraCommand;
 import org.photonvision.PhotonCamera;
 
 import edu.wpi.first.wpilibj.GenericHID;
@@ -26,7 +27,8 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   //Camera
-  private final Camera camera = new Camera(new PhotonCamera(Constants.camera.cameraName));
+  private final Camera camera = new Camera(new PhotonCamera(Constants.camera.CAMERA_NAME));
+  private final CameraCommand cameraCommand = new CameraCommand(camera);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.util.Units;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -14,6 +16,9 @@ package frc.robot;
  */
 public final class Constants {
     public final static class camera {
-        public static final String cameraName = "mmal_service_16.1";
+        public static final String CAMERA_NAME = "mmal_service_16.1";
+        public static final double CAMERA_HEIGHT_METERS = Units.inchesToMeters(48d);
+        public static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(48d);
+        public static final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(90);
     }
 }
